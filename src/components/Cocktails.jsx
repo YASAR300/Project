@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const Cocktails = () => {
-  const [cocktails, setCocktails] = useState([]); // Ensure cocktails is always an array
+  const [cocktails, setCocktails] = useState([]); 
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -20,11 +20,11 @@ const Cocktails = () => {
       );
       const data = await response.json();
 
-      // Check if the drinks key exists and is an array
+      
       if (Array.isArray(data.drinks)) {
         setCocktails(data.drinks);
       } else {
-        setCocktails([]); // No results
+        setCocktails([]); 
       }
     } catch (err) {
       console.error("Error fetching cocktails:", err);
@@ -59,7 +59,7 @@ const Cocktails = () => {
           ))}
         </ul>
       ) : (
-        !loading && <p>No results found.</p>
+        !loading && <p>No results found. Search for results like margarita </p>
       )}
     </div>
   );
