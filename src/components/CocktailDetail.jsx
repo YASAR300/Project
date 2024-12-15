@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import "../css/cocktailDetail.css";
+import "../css/CocktailDetail.css";
 
 const CocktailDetail = () => {
   const { state } = useLocation();
