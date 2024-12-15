@@ -1,0 +1,380 @@
+/* Potter Page Styles */
+
+/* Container for the entire Potter section */
+.potter-container {
+    background: white; /* Changed to white background */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    color: #1a1a1a; /* Changed to a darker color for visibility on white background */
+}
+
+/* Header */
+.potter-heading {
+    text-align: center;
+    font-size: 3.8rem;
+    font-weight: 800;
+    color: #d4af37; /* Gold color */
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 40px rgba(212, 175, 55, 0.8);
+    animation: glowing 2.5s ease-in-out infinite alternate;
+}
+
+/* Glowing animation for the header */
+@keyframes glowing {
+    0% {
+        text-shadow: 0 0 20px rgba(212, 175, 55, 1), 0 0 30px rgba(212, 175, 55, 0.8);
+    }
+    50% {
+        text-shadow: 0 0 30px rgba(212, 175, 55, 1), 0 0 50px rgba(212, 175, 55, 0.9);
+    }
+    100% {
+        text-shadow: 0 0 25px rgba(212, 175, 55, 0.9), 0 0 40px rgba(212, 175, 55, 1);
+    }
+}
+
+/* Search bar styling */
+.potter-search-bar {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.potter-search-input {
+    padding: 12px 18px;
+    font-size: 1.2rem;
+    border: 1px solid #ffd700;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #1a1a1a;
+    width: 60%;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.potter-search-input:focus {
+    border-color: #d4af37;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* House filter styling */
+.potter-house-filter {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+.potter-house-label {
+    margin-right: 15px;
+    font-size: 1.4rem;
+    color: #1a1a1a;
+}
+
+.potter-house-select {
+    padding: 12px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #1a1a1a;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.potter-house-select:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: #ffd700;
+}
+
+/* Character list styling */
+.potter-character-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Each character item */
+.potter-character-item {
+    width: 270px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(54, 54, 54, 0.7));
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+    transition: all 0.4s ease;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Character name */
+.potter-character-name {
+    font-size: 1.8rem;
+    color: #ffd700;
+    margin-bottom: 12px;
+    text-shadow: 0 0 10px #d4af37, 0 0 20px #d4af37;
+}
+
+/* Character house */
+.potter-character-house {
+    font-size: 1.3rem;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+/* Character image */
+.potter-character-image {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.potter-character-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+}
+
+.potter-character-image:hover {
+    transform: scale(1.12);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+}
+
+/* Loading text */
+.potter-loading {
+    text-align: center;
+    color: #1a1a1a;
+    font-size: 1.5rem;
+    margin-top: 40px;
+}
+
+/* FadeInUp animation */
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Media Query: Mobile devices */
+@media screen and (max-width: 600px) {
+    .potter-search-input {
+        width: 80%;
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+
+    .potter-character-item {
+        width: 220px;
+    }
+
+    .potter-heading {
+        font-size: 2.5rem;
+    }
+
+    .potter-house-select, .potter-house-label {
+        font-size: 1rem;
+    }
+
+    .potter-character-name {
+        font-size: 1.4rem;
+    }
+
+    .potter-character-house {
+        font-size: 1rem;
+    }
+}
+
+/* Style for the language selector */
+.potter-language-selector {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    color: #1a1a1a;
+}
+
+.potter-language-select {
+    padding: 10px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #1a1a1a;
+    border: 1px solid #1a1a1a;
+}
+
+/* Style for the Random button */
+.potter-random-button {
+    background-color: #ffd700;
+    color: #1a1a1a;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.potter-random-button:hover {
+    background-color: #ffcc00;
+}
+/* Container for the entire Potter section */
+.potter-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    color: #333;
+    max-width: 1300px;
+    margin: auto;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Header */
+  .potter-heading {
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #d4af37; /* Gold color */
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+    text-shadow: 0 0 8px rgba(212, 175, 55, 1);
+  }
+  
+  /* Search bar styling */
+  .potter-search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .potter-search-input {
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    width: 60%;
+    border: 2px solid #ccc;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .potter-search-input:focus {
+    border-color: #d4af37;
+  }
+  
+  /* House filter styling */
+  .potter-house-filter {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .potter-house-label {
+    font-size: 1.2rem;
+    color: #333;
+    margin-right: 10px;
+  }
+  
+  .potter-house-select {
+    padding: 10px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    outline: none;
+    width: 200px;
+  }
+  
+  .potter-house-select:hover {
+    border-color: #d4af37;
+  }
+  
+  /* Character list styling */
+  .potter-character-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* Each character item */
+  .potter-character-item {
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .potter-character-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Character name styling */
+  .potter-character-name {
+    font-size: 1.6rem;
+    color: #1a1a1a;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Character house */
+  .potter-character-house {
+    font-size: 1.1rem;
+    color: #777;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+  }
+  
+  /* Character image styling */
+  .potter-character-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 15px;
+    transition: transform 0.3s ease;
+  }
+  
+  .potter-character-item:hover .potter-character-image {
+    transform: scale(1.05);
+  }
+  
+  /* Loading text */
+  .potter-loading {
+    text-align: center;
+    color: #d4af37;
+    font-size: 1.5rem;
+  }
+  
+  /* Media Query: Mobile devices */
+  @media screen and (max-width: 600px) {
+    .potter-search-input {
+      width: 80%;
+      font-size: 1.1rem;
+    }
+  
+    .potter-heading {
+      font-size: 2.8rem;
+    }
+  
+    .potter-house-select, .potter-house-label {
+      font-size: 1rem;
+    }
+  
+    .potter-character-name {
+      font-size: 1.4rem;
+    }
+  }
+  

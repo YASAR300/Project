@@ -1,59 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import "../css/bank.css";
 
 const IndianBanks = () => {
-  const [state, setState] = useState("");
-  const [district, setDistrict] = useState("");
-  const [city, setCity] = useState("");
-  const [center, setCenter] = useState("");
-  const [branch, setBranch] = useState("");
+  const [ifscCode, setIfscCode] = useState("");
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [states, setStates] = useState([]);
-  const [districts, setDistricts] = useState([]);
-
-  // Fetching list of states (example, replace with actual API endpoint if available)
-  useEffect(() => {
-    const fetchStates = async () => {
-      try {
-        const response = await fetch("https://api.example.com/states");
-        const result = await response.json();
-        setStates(result.states); // Assuming the response returns an array of state names
-      } catch (err) {
-        console.error("Failed to fetch states:", err);
-      }
-    };
-
-    fetchStates();
-  }, []);
-
-  // Fetching districts based on selected state
-  useEffect(() => {
-    const fetchDistricts = async () => {
-      if (!state) return;
-
-      try {
-        const response = await fetch(`https://api.example.com/districts/${state}`);
-        const result = await response.json();
-        setDistricts(result.districts); // Assuming response contains an array of districts
-      } catch (err) {
-        console.error("Failed to fetch districts:", err);
-      }
-    };
-
-    fetchDistricts();
-  }, [state]);
 
   const fetchBranchData = async () => {
+    if (!ifscCode) {
+      setError("Please enter a valid IFSC code.");
+      return;
+    }
+
     setLoading(true);
     setError(null);
 
-    const url = `https://bank-apis.justinclicks.com/API/V1/STATE/${state}/DISTRICT/${district}/CITY/${city}/CENTER/${center}/BRANCH/${branch}.json`;
+    const url = `https://bank-apis.justinclicks.com/API/V1/IFSC/${ifscCode.toUpperCase()}`;
 
     try {
       const response = await fetch(url);
       if (!response.ok) {
-        throw new Error("Failed to fetch data");
+        throw new Error("IFSC code not found.");
       }
       const result = await response.json();
       setData(result);
@@ -65,65 +33,29 @@ const IndianBanks = () => {
   };
 
   return (
-    <div>
-      <h1>Indian Banks API</h1>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (!state || !district || !city || !branch) {
-            setError("All fields are required.");
-            return;
-          }
-          fetchBranchData();
-        }}
-      >
-        <select value={state} onChange={(e) => setState(e.target.value)}>
-          <option value="">Select State</option>
-          {states.map((stateName) => (
-            <option key={stateName} value={stateName}>
-              {stateName}
-            </option>
-          ))}
-        </select>
+    <div className="indian-banks-container">
+      <h1 className="indian-banks-title">Search Indian Bank Branch by IFSC</h1>
 
-        <select value={district} onChange={(e) => setDistrict(e.target.value)} disabled={!state}>
-          <option value="">Select District</option>
-          {districts.map((districtName) => (
-            <option key={districtName} value={districtName}>
-              {districtName}
-            </option>
-          ))}
-        </select>
-
+      <div className="indian-banks-form">
         <input
           type="text"
-          placeholder="City"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
+          className="indian-banks-input"
+          placeholder="Enter IFSC Code"
+          value={ifscCode}
+          onChange={(e) => setIfscCode(e.target.value)}
         />
-        <input
-          type="text"
-          placeholder="Center"
-          value={center}
-          onChange={(e) => setCenter(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Branch"
-          value={branch}
-          onChange={(e) => setBranch(e.target.value)}
-        />
-        <button type="submit">Search</button>
-      </form>
+        <button className="indian-banks-button" onClick={fetchBranchData}>Search</button>
+      </div>
 
-      {loading && <p>Loading...</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {loading && <p className="indian-banks-loading">Loading...</p>}
+      {error && <p className="indian-banks-error">{error}</p>}
+
       {data && (
-        <div>
-          <h2>Branch Details</h2>
-          <ul>
+        <div className="indian-banks-details">
+          <h2 className="indian-banks-details-title">Branch Details</h2>
+          <ul className="indian-banks-details-list">
             {Object.entries(data).map(([key, value]) => (
-              <li key={key}>
+              <li key={key} className="indian-banks-details-item">
                 <strong>{key}:</strong> {value}
               </li>
             ))}

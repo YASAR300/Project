@@ -1,0 +1,106 @@
+/* Container for the entire component */
+.indian-banks-container {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  /* Heading for the page */
+  .indian-banks-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+  }
+  
+  /* Form input and button styling */
+  .indian-banks-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .indian-banks-input {
+    width: 100%;
+    max-width: 350px;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  .indian-banks-button {
+    width: 100%;
+    max-width: 350px;
+    padding: 12px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .indian-banks-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Loading and error message */
+  .indian-banks-loading {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  .indian-banks-error {
+    text-align: center;
+    font-size: 1rem;
+    color: red;
+  }
+  
+  /* Displaying branch details */
+  .indian-banks-details {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 450px;
+  }
+  
+  .indian-banks-details-title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #4a4a4a;
+    margin-bottom: 15px;
+  }
+  
+  .indian-banks-details-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .indian-banks-details-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .indian-banks-details-item:last-child {
+    border-bottom: none;
+  }
+  
+  .indian-banks-details-item strong {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
