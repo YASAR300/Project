@@ -18,6 +18,8 @@
   font-size: 1.5rem;
   color: #555;
   margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 /* Category Section */
