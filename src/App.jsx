@@ -8,7 +8,11 @@ import MealDetail from "./components/MealDetail";
 import Navbar from "./components/Navbar";
 import Cocktails from "./components/Cocktails";
 import CocktailDetail from "./components/CocktailDetail";
-// import NotFound from "./components/NotFound"; 
+import NotFound from "./components/NotFound"; 
+import AboutUs from "./components/AboutUs"; 
+import ContactUs from "./components/ContactUs"; 
+
+
 
 const App = () => {
   return (
@@ -33,7 +37,9 @@ const App = () => {
           <Route path="/cocktail/:id" element={<CocktailDetail />} />
 
           
-          {/* <Route path="*" element={<NotFound />} /> */}
+          <Route path="*" element={<NotFound />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
         </Routes>
       </div>
     </Router>

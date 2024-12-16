@@ -13,7 +13,7 @@ const Meals = () => {
 
   useEffect(() => {
     fetchCategories();
-    fetchMeals(); // Fetch default meals when the component mounts
+    fetchMeals(); 
   }, []);
 
   const fetchCategories = async () => {
