@@ -144,3 +144,55 @@
     text-align: center;
   }
   
+  .filters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 0rem; 
+    margin: 1rem 0;
+  }
+  
+  .filter1, .filter2, .filter3 {
+    grid-column: span 1; 
+  }
+  .filter4  {
+    grid-column: span 4; 
+    justify-self: center; 
+    width: 32%; 
+  }
+.filters label {
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.filters select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.filters button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filters button:hover {
+  background-color: #0056b3;
+}
+
+
+.filters select,
+.filters button {
+  margin-bottom: 0.5rem;
+}
+
+

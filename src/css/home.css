@@ -1,4 +1,4 @@
-/* General Home Styles */
+
 .home {
   text-align: center;
   padding: 40px 20px;
@@ -6,7 +6,6 @@
   min-height: 100vh;
 }
 
-/* Title and Subtitle */
 .home-title {
   font-size: 3rem;
   color: #333;
@@ -22,7 +21,7 @@
   justify-content: center;
 }
 
-/* Category Section */
+
 .categories {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -30,7 +29,7 @@
   padding: 0 20px;
 }
 
-/* Category Cards */
+
 .category-card {
   background-color: white;
   border-radius: 10px;

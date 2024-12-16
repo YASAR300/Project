@@ -1,4 +1,4 @@
-/* Container for the entire component */
+
 .indian-banks-container {
     font-family: 'Arial', sans-serif;
     background-color: #f4f7fc;
@@ -11,7 +11,7 @@
     margin: 0;
   }
   
-  /* Heading for the page */
+  
   .indian-banks-title {
     text-align: center;
     font-size: 2rem;
@@ -19,7 +19,7 @@
     margin-bottom: 20px;
   }
   
-  /* Form input and button styling */
+ 
   .indian-banks-form {
     display: flex;
     flex-direction: column;
@@ -55,7 +55,7 @@
     background-color: #0056b3;
   }
   
-  /* Loading and error message */
+  
   .indian-banks-loading {
     text-align: center;
     font-size: 1.2rem;
@@ -69,7 +69,7 @@
     color: red;
   }
   
-  /* Displaying branch details */
+ 
   .indian-banks-details {
     margin-top: 20px;
     width: 100%;
