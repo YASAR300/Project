@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import "../css/ContactUs.css"; // Style file for Contact Us page
-
+import "../css/ContactUs.css"; 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    rollNumber: "", 
+    department: "", 
+    year: "", 
     message: "",
   });
   const [formSuccess, setFormSuccess] = useState(null);
-
+  const [loading, setLoading] = useState(false); 
 
   const handleChange = (e) => {
     setFormData({
@@ -17,11 +19,38 @@ const ContactUs = () => {
     });
   };
 
- 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormSuccess(true);
-    setFormData({ name: "", email: "", message: "" });
+    setLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:5000/students", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setFormSuccess(true);
+        setFormData({
+          name: "",
+          email: "",
+          rollNumber: "",
+          department: "",
+          year: "",
+          message: "",
+        });
+      } else {
+        setFormSuccess(false);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setFormSuccess(false);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -30,7 +59,7 @@ const ContactUs = () => {
       {formSuccess === true ? (
         <p className="success-message">Thank you for contacting us!</p>
       ) : formSuccess === false ? (
-        <p className="error-message">There was an error sending your message. Please try again.</p>
+        <p className="error-message">Failed to submit. Please try again.</p>
       ) : (
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -58,6 +87,42 @@ const ContactUs = () => {
           </div>
 
           <div className="form-group">
+            <label htmlFor="rollNumber">Roll Number:</label>
+            <input
+              type="number"
+              id="rollNumber"
+              name="rollNumber"
+              value={formData.rollNumber}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="department">Department:</label>
+            <input
+              type="text"
+              id="department"
+              name="department"
+              value={formData.department}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="year">Year:</label>
+            <input
+              type="number"
+              id="year"
+              name="year"
+              value={formData.year}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
             <label htmlFor="message">Message:</label>
             <textarea
               id="message"
@@ -68,7 +133,9 @@ const ContactUs = () => {
             ></textarea>
           </div>
 
-          <button type="submit">Send Message</button>
+          <button type="submit" disabled={loading}>
+            {loading ? "Sending..." : "Submit"}
+          </button>
         </form>
       )}
     </div>
